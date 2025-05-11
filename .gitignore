@@ -1,6 +1,9 @@
 # Virtual environment
 venv/
 .env/
+.venv/
+env/
+ENV/
 
 # Environment variables
 .env
@@ -12,6 +15,8 @@ venv/
 dist/
 build/
 pip-wheel-metadata/
+*.egg-info/
+.installed.cfg
 
 # Cache and logs
 *.log
@@ -19,9 +24,23 @@ pip-wheel-metadata/
 *.pytest_cache/
 coverage/
 htmlcov/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# IDE specific files
+.idea/
+.vscode/
+*.swp
+*.swo
+.project
+.pydevproject
+.settings/
 
 # Jupyter notebooks checkpoints (if any)
 .ipynb_checkpoints/
+.ipynb_checkpoints
+*/.ipynb_checkpoints/*
 
 # macOS system files
 .DS_Store
@@ -29,3 +48,45 @@ htmlcov/
 # Ignore Python compiled files
 *.pyo
 *.pyd
+__pycache__/
+*.pyc
+**/__pycache__/
+**/*.pyc
+
+# Distribution / packaging
+.Python
+develop-eggs/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.manifest
+*.spec
+
+# Unit test / coverage reports
+.tox/
+.nox/
+.coverage
+.coverage.*
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+
+# Project specific
+*.db
+*.sqlite3
+*.sqlite
+data/
+datasets/
+models/
+checkpoints/
+outputs/
+logs/
+tmp/
+temp/
