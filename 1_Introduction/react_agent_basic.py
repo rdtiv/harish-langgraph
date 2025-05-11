@@ -1,12 +1,14 @@
-from langchain_google_genai import ChatGoogleGenerativeAI
+from langchain_openai import ChatOpenAI
 from dotenv import load_dotenv
 from langchain.agents import initialize_agent, tool
 from langchain_community.tools import TavilySearchResults
 import datetime
+from langchain_core.tracers import LangChainTracer
 
 load_dotenv()
 
-llm = ChatGoogleGenerativeAI(model="gemini-1.5-pro")
+# Initialize LangChain with tracing
+llm = ChatOpenAI(model="gpt-4.1", callbacks=[LangChainTracer()])
 
 search_tool = TavilySearchResults(search_depth="basic")
 
@@ -23,5 +25,4 @@ tools = [search_tool, get_system_time]
 
 agent = initialize_agent(tools=tools, llm=llm, agent="zero-shot-react-description", verbose=True)
 
-agent.invoke("When was SpaceX's last launch and how many days ago was that from this instant")
-
+agent.invoke("When was SpaceX's most recent launch? What was the missions purpose? How many days ago was that from this instant")
